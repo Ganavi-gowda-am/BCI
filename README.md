@@ -5,6 +5,7 @@ Brain-computer interfaces (BCIs) are systems that facilitate direct communicatio
 ## Electrode Types
 
 Electrodes are essential components of BCIs, as they detect electrical activity from neurons. There are two main types of electrodes:
+![alt text](https://media.springernature.com/lw1200/springer-static/image/art%3A10.1038%2Fs41378-022-00479-8/MediaObjects/41378_2022_479_Fig2_HTML.png/300/300)
 
 ### 1. Invasive Electrodes
 - *Description*: Implanted directly into the brain tissue.
