@@ -1,1 +1,122 @@
 
+//adder
+module FuladderBM(a,b,c,sum,carry);
+input a,b,c;
+output reg sum,carry;
+always @(a or b or c)
+begin
+sum=a^b^c;
+carry=((a&b)|(b&c)|(c&a));
+end
+endmodule
+//s flip flop
+module srff(clk,rst,s,r,q,qb);
+input clk,rst,s,r;
+output reg q,qb;
+always@(posedge clk , rst)
+begin
+if(rst= =1'b0)
+begin
+q=q;
+qb=qb;
+end
+else if(s= =1'b0 && r= =1'b0)
+begin
+q=q;
+qb=qb;
+end
+else if(s= =1'b0 && r= =1'b1)
+begin
+q=q;
+qb= ~q;
+end
+else if(s==1'b1 && r==1'b0)
+begin
+q=1'b1;
+qb=~q;
+end
+else if(s= =1'b1 && r= =1'b1)
+begin
+q=1'bX;qb=~q;
+end
+end
+endmodule
+//jk flipflop
+module jkff(clk,rst,j,k,q,qb);
+input clk,rst,j,k;
+output reg q,qb;
+always@(posedge clk ,rst)
+begin
+if(rst= =1'b0)
+begin
+q=q;
+qb=qb;
+end
+else if(j= =1'b0 && k= =1'b0)
+begin
+q=q;
+qb=qb;
+end
+else if(j==1'b0 && k==1'b1)
+begin
+q=q;
+qb=~q;
+end
+else if(j==1'b1 && k==1'b0)
+begin
+q=1'b1;
+qb=~q;
+end
+else if(j==1'b1 && k==1'b1)
+begin
+q=~q;
+qb=~qb;
+end
+end
+endmodule
+//dflipflop
+module dff(d,clk,rst,q,qb);
+input d,clk,rst;
+output reg q,qb;
+always@(posedge clk ,rst)
+begin
+if(rst= =1'b0)
+begin
+q=1'b0;
+qb=~q;
+end
+else if(d= =1'b0)
+begin
+q=1'b0;
+qb=~q;
+end
+else
+begin
+q=1'b1;
+qb=~q;
+end
+end
+endmodule
+//tflip
+module tff(T,clk,rst,q,qb);
+input T,clk,rst;
+output reg q,qb;
+always@(posedge clk , rst)
+begin
+if(rst= =1'b0)
+begin
+q=1'b0;
+qb=~q;
+end
+else if(T= =1'b0)
+begin
+q=q;
+qb=~q;
+end
+else
+begin
+q=~q;
+qb=~qb;
+end
+end
+endmodule
