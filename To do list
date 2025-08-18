@@ -1,0 +1,57 @@
+class ToDoList:
+    def __init__(self):
+        self.tasks = []
+
+    def add_task(self, task):
+        self.tasks.append({"task": task, "done": False})
+
+    def remove_task(self, index):
+        if 0 <= index < len(self.tasks):
+            self.tasks.pop(index)
+        else:
+            print("Invalid index!")
+
+    def mark_done(self, index):
+        if 0 <= index < len(self.tasks):
+            self.tasks[index]["done"] = True
+        else:
+            print("Invalid index!")
+
+    def show_tasks(self):
+        if not self.tasks:
+            print("No tasks yet!")
+        else:
+            for i, t in enumerate(self.tasks):
+                status = "✔" if t["done"] else "❌"
+                print(f"{i}. {t['task']} [{status}]")
+
+# --------- DEMO ---------
+todo = ToDoList()
+
+# Add tasks
+todo.add_task("Buy milk")
+todo.add_task("Study DSA")
+todo.add_task("Practice Python")
+
+# Show tasks
+print("\n--- Initial Tasks ---")
+todo.show_tasks()
+
+# Mark one as done
+todo.mark_done(1)
+
+# Remove one task
+todo.remove_task(0)
+
+print("\n--- Final Tasks ---")
+todo.show_tasks()
+
+# ----- Memory Reference Demo -----
+a = todo.tasks
+b = todo.tasks.copy()
+
+print("\nMemory Reference Check:")
+print("a == b:", a == b)   # values same
+print("a is b:", a is b)   # memory ref same?
+print("id(a):", id(a))
+print("id(b):", id(b))
